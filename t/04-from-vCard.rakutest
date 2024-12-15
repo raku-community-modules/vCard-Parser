@@ -1,0 +1,13 @@
+use Test;
+
+use vCard::Parser;
+use JSON::Tiny;
+
+plan 1;
+
+is-deeply
+  from-vCard(slurp $*PROGRAM.sibling('test-cards').add('test-card1.vcard')),
+  from-json(slurp $*PROGRAM.sibling('test-cards').add('test-card3.jcard')),
+  'Testing from-vCard routine.';
+
+# vim: expandtab shiftwidth=4

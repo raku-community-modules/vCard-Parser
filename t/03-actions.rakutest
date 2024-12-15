@@ -1,12 +1,13 @@
-use v6.d;
 use Test;
+
 use vCard::Parser::Grammar;
 use vCard::Parser::Actions;
 use JSON::Tiny;
 
+plan 9;
+
 my $grammar = vCard::Parser::Grammar.new;
 my $action = vCard::Parser::Actions.new;
-
 
 role Do-made {
     method made {self};
@@ -44,4 +45,4 @@ subtest 'Testing types of property-value.', {
     };
 };
 
-done-testing;
+# vim: expandtab shiftwidth=4

@@ -1,11 +1,10 @@
-use v6.d;
 use vCard::Parser::Grammar;
 use vCard::Parser::Actions;
 
-unit class vCard::Parser:ver<0.0.1>;
+unit class vCard::Parser;
 
-sub line-folding (Str $_) {
-    return $_.subst(/ \n [ ' ' | \t ] /, Q{}, :g);
+sub line-folding(Str:D $_) {
+    .subst(/ \n [ ' ' | \t ] /, Q{}, :g);
 };
 
 sub from-vCard ($_) is export {
@@ -16,7 +15,6 @@ sub from-vCard ($_) is export {
         return $_.made
     };
 };
-
 
 =begin pod
 
@@ -50,11 +48,13 @@ It also serves as it's convertor to jCard, which is a JSON format for vCard data
 
 =head1 AUTHOR
 
- Petr Kolář <petrkol72@seznam.cz>
+Petr Kolář
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2019 
+Copyright 2019 Petr Kolář
+
+Copyright 2024 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

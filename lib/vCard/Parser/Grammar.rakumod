@@ -87,3 +87,5 @@ token parameter-name:sym<x-name>          { <[xX]> '-' <.alpha-num-dash>+ }
 #https://tools.ietf.org/html/rfc6350#page-73 - Vcard
 #https://tools.ietf.org/html/rfc7095         - Jcard
 #https://www.iana.org/assignments/vcard-elements/vcard-elements.xhtml#value-data-types - Iana
+
+# vim: expandtab shiftwidth=4

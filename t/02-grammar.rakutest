@@ -1,11 +1,14 @@
-use v6.d;
 use Test;
+
 use vCard::Parser::Grammar;
+
+plan 23;
 
 my $vcard-grammar = vCard::Parser::Grammar.new;
 
-
-ok $vcard-grammar.parsefile($_), "Testcard: \n\n$/ \n\n..........\n" for './t/test-cards/test-card1.vcard', './t/test-cards/test-card2.vcard', './t/test-cards/test-card4.vcard';
+ok $vcard-grammar.parsefile($*PROGRAM.sibling('test-cards').add($_)),
+  "Testcard: \n\n$/ \n\n..........\n"
+  for <test-card1.vcard test-card2.vcard test-card4.vcard>;
 
 ok $vcard-grammar.parse($_, :rule<property-name>), "A property name can be $_" for <email Email eMail n N fn fN>;
 like $vcard-grammar.parse($_, :rule<content-line>).<property-value>,/^Bubba/ with 'ORG:Bubba Gump Shrimp Co.';
@@ -27,4 +30,4 @@ is $vcard-grammar.parse($_, :rule<content-line>).<parameter>, <TYPE=work,voice V
 like $vcard-grammar.parse($_, :rule<content-line>).<parameter>.[0],/^TYPE/, 'First parameter-name begins with characters TYPE.' with 'ADR;TYPE=HOME;LABEL="42 Plantation St.\nBaytown\, LA 30314\nUnited States of America":;;42 Plantation St.;Baytown;LA;30314;United States of America';
 cmp-ok $vcard-grammar.parse($_, :rule<property-value>).<property-simple-value>».Str, 'eqv', ["My Street", "Left Side", "Second Shack"], 'property-value makes an array with three items of a property-simple-value type' with 'My Street,Left Side,Second Shack';
 
-done-testing;
+# vim: expandtab shiftwidth=4

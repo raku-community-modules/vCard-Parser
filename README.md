@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/petrkol72/vCard-Parser.svg?branch=master)](https://travis-ci.org/petrkol72/vCard-Parser)
+[![Actions Status](https://github.com/raku-community-modules/vCard-Parser/actions/workflows/linux.yml/badge.svg)](https://github.com/raku-community-modules/vCard-Parser/actions) [![Actions Status](https://github.com/raku-community-modules/vCard-Parser/actions/workflows/macos.yml/badge.svg)](https://github.com/raku-community-modules/vCard-Parser/actions) [![Actions Status](https://github.com/raku-community-modules/vCard-Parser/actions/workflows/windows.yml/badge.svg)](https://github.com/raku-community-modules/vCard-Parser/actions)
 
 NAME
 ====
@@ -31,12 +31,14 @@ vCard::Parser is a basic parser of vCard files of version 4.0. It also serves as
 AUTHOR
 ======
 
-    Petr Kolář <petrkol72@seznam.cz>
+Petr Kolář
 
 COPYRIGHT AND LICENSE
 =====================
 
-Copyright 2019 
+Copyright 2019 Petr Kolář
+
+Copyright 2024 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

@@ -47,7 +47,7 @@ my %default-type-of-value = %(
 method made-value ($_) {
         when $_.elems > 1 {$_».made}
         default {$_[0].made}
-};
+}
 method TOP ($/) { make $.made-value($<vcard>) }
 method vcard ($/) {
     make ["vcard",
@@ -56,7 +56,7 @@ method vcard ($/) {
         |$<content-line>».made;
       ]
     ]
-};
+}
 method content-line ($/) {
     #preparing a hashArray of parameters
     my %parameter = %($<parameter>».made);
@@ -74,20 +74,22 @@ method content-line ($/) {
         $parameter-of-type-value,
         $.made-value($<property-value>)
     ]
-};
+}
 method property-simple-value ($/) {
     make $/.subst( / \\ )> <[,;]> /, Q{}, :g ).subst(/ \\n/, "\n", :g)
-};
+}
 method property-value ($/) {
     make $.made-value($<property-simple-value>)
-};
+}
 method parameter ($/) {
     make $<parameter-name>.lc => $.made-value($<parameter-value>); 
-};
+}
 method parameter-value ($/) {
     with $<q-safe-char> {make $_.made}
     orwith $<safe-char> {make $_.Str}
-};
+}
 method q-safe-char ($/) {
     make $/.subst(/ \\ )> <[,\;]> /, Q{}, :g ).subst(/ \\n /, "\n", :g)
-};
+}
+
+# vim: expandtab shiftwidth=4
