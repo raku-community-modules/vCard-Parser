@@ -1,4 +1,6 @@
 Revision history for vCard-Parser
 
 {{$NEXT}}
+
+0.0.2  2024-12-15T19:25:09+01:00
     - Initial version as a Raku Community module
